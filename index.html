@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Calzone test</title>
+<style>
+            div,p { text-align:justify; margin:0px; padding:0px; }
+            td { padding: 5px; border:1px solid #aaa }
+        </style>
+</head>
+<body>
+        <h1>Calzone hyphenation-and-justification test</h1>
+        <table>
+        <tr><td style="width:350px; min-width:350px;">
+        <h2>Without Calzone</h2>
+<p>In olden times when wishing still helped one, there lived a king whose daughters were all beautiful; and the youngest was so beautiful that the sun itself, which has seen so much, was astonished whenever it shone in her face. Close by the king's castle lay a great dark forest, and under an old lime-tree in the forest was a well, and when the day was very warm, the king's child went out to the forest and sat down by the fountain; and when she was bored she took a golden ball, and threw it up on high and caught it; and this ball was her favorite plaything.</p>
+        </td><td style="width:20px">&nbsp;</td>
+        <td style="width:350px">
+        <h2>With Calzone</h2>
+        <p class="cal">In olden times when wishing still helped one, there lived a king whose daughters were all beautiful; and the youngest was so beautiful that the sun itself, which has seen so much, was astonished whenever it shone in her face. Close by the king's castle lay a great dark forest, and under an old lime-tree in the forest was a well, and when the day was very warm, the king's child went out to the forest and sat down by the fountain; and when she was bored she took a golden ball, and threw it up on high and caught it; and this ball was her favorite plaything.</p>
+        </td>
+        </tr>
+        </table>
+        <h2>Without Calzone</h2>
+<p>In olden times when wishing still helped one, there lived a king whose daughters were all beautiful; and the youngest was so beautiful that the sun itself, which has seen so much, was astonished whenever it shone in her face. Close by the king's castle lay a great dark forest, and under an old lime-tree in the forest was a well, and when the day was very warm, the king's child went out to the forest and sat down by the fountain; and when she was bored she took a golden ball, and threw it up on high and caught it; and this ball was her favorite plaything.</p>
+        <h2>With Calzone</h2>
+        <p class="cal">In olden times when wishing still helped one, there lived a king whose daughters were all beautiful; and the youngest was so beautiful that the sun itself, which has seen so much, was astonished whenever it shone in her face. Close by the king's castle lay a great dark forest, and under an old lime-tree in the forest was a well, and when the day was very warm, the king's child went out to the forest and sat down by the fountain; and when she was bored she took a golden ball, and threw it up on high and caught it; and this ball was her favorite plaything.
+        </p>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://github.com/simoncozens/calzone/raw/master/h-and-j.js"></script>
+        <script> jQuery(function ($) { Calzone("p.cal") }); </script>
+</body>
+</html>
+
