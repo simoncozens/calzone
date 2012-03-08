@@ -1,7 +1,8 @@
-	function browserAssistTypeset(identifier, type, tolerance) {
+	function browserAssistTypeset(identifier, type, tolerance, options) {
         var ruler = $(identifier).clone().css({
                 visibility: 'hidden', position: 'absolute',
                 top: '-8000px', width: 'auto',
+                "text-indent": "0px",
                 display: 'inline', left: '-8000px'
             })
         $('body').append(ruler);
@@ -41,7 +42,7 @@
 			lineStart = point;
 		}
 
-		lines = lines.map(function (line) {
+		lines.forEach(function (line, index,array) {
 			var spaceShrink = spacewidth * 3 / 9;
 				spaceStretch = spacewidth * 3 / 6;
 				ratio = line.ratio * (line.ratio < 0 ? spaceShrink : spaceStretch);
@@ -59,10 +60,10 @@
 		});
         ruler.remove();
 	}
-function Calzone(sel) {
+function Calzone(sel, options) {
+    if (!options) { options = { widow: 2, orphan: 2 } }
     $(document).ready(function(){
-        console.log($(sel));
-        $(sel).each(function(i,el) { browserAssistTypeset(el, 'justify', 2) });
-        $(sel).resize(function() { browserAssistTypeset(this, 'justify', 2); });
+        $(sel).each(function(i,el) { browserAssistTypeset(el, 'justify', 2, options) });
+        $(sel).resize(function() { browserAssistTypeset(this, 'justify', 2, options); });
     });
 }
