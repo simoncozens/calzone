@@ -16,8 +16,10 @@
 
         var text = $(identifier)[0]._originalText ? $(identifier)[0]._originalText : $(identifier).text();
         if (!$(identifier)[0]._originalText) $(identifier)[0]._originalText = text;
+        var width = $(identifier).width();
+        var ti    = parseFloat($(identifier).css("text-indent"));
         var nodes = format[type](text),
-        breaks = linebreak(nodes, [$(identifier).width() - parseFloat($(identifier).css("text-indent")), $(identifier).width()], {tolerance: tolerance}),
+        breaks = linebreak(nodes, [width-ti, width], {tolerance: tolerance}),
         lines = [],
         i, point, r, lineStart;
         if (!breaks.length) return; 
@@ -44,7 +46,7 @@
 				spaceStretch = spacewidth * 3 / 6;
 				ratio = line.ratio * (line.ratio < 0 ? spaceShrink : spaceStretch);
 
-			var output = '<span style="word-spacing: ' + ratio.toFixed(3) + 'px; display: inline-block; white-space: nowrap;">'; 
+			var output = '<span style="text-indent:0; word-spacing: ' + ratio.toFixed(3) + 'px; display: inline-block; white-space: nowrap;">'; 
             line.nodes.forEach(function (n,index,array) { 
 				if (n.type === 'box') output += n.value;
                 else if (n.type === 'glue') output += " ";
